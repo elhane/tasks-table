@@ -1,0 +1,36 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th {
+    padding: 10px;
+    color: var(--grey);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: left;
+  }
+
+  td {
+    padding: 15px 10px;
+    font-size: 0.8rem;
+
+    span {
+      display: block;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  tr {
+    padding: 7px 10px;
+    height: 40px;
+  }
+
+  tbody tr {
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+  }
+
+}
