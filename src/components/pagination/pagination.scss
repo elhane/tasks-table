@@ -1,0 +1,50 @@
+.page-pagination {
+  margin-right: 0.5rem;
+
+  &__label {
+    margin-right: 0.5rem;
+  }
+}
+
+.pagination {
+  display: inline-flex;
+  border: 1px solid var(--grey-light);
+  border-radius: 0.2rem;
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.4rem;
+    padding: 0.3rem 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--blue);
+
+    &:not(:last-child) {
+      border-right: 1px solid var(--grey-light);
+    }
+
+    &[type="firstItem"],
+    &[type="lastItem"],
+    &[type="prevItem"],
+    &[type="nextItem"] {
+      font-size: 1.6rem;
+      line-height: 1;
+      font-weight: 300;
+      padding-bottom: 0.5rem;
+    }
+
+    &.disabled {
+      color: var(--grey);
+      opacity: 0.5;
+    }
+  }
+
+  .active.item {
+    min-width: 4rem;
+    font-weight: 500;
+  }
+
+
+}

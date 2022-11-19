@@ -1,0 +1,20 @@
+.select {
+  display: inline-flex;
+  align-items: center;
+
+  &__label {
+    margin-right: 0.5rem;
+  }
+
+  &__select {
+    padding: 0.6rem 0.6rem 0.6rem 0.2rem;
+    min-width: 1.4rem;
+    border: 1px solid var(--grey-light);
+    text-align: center;
+    border-radius: 0.2rem;
+    color: var(--blue);
+    font-weight: 500;
+    font-size: 0.9rem;
+
+  }
+}

@@ -18,4 +18,11 @@ const columns: TheadCol[] = [
   { content: 'Статус', extraClasses: ['text-center'] },
 ];
 
-export {Status, BACKEND_URL, columns};
+const TASKS_PER_STEP_AMOUNT = 5;
+
+export {
+  Status,
+  BACKEND_URL,
+  columns,
+  TASKS_PER_STEP_AMOUNT
+};
