@@ -10,8 +10,14 @@ function TableCell({rows}: TableCellProps): JSX.Element {
     <td>
       {
         rows.map(({tag, content, extraClasses = []}) => (
-          tag === 'span' ? <span className={extraClasses.join(" ")}>{content}</span> : <time className={extraClasses.join(" ")}>{content}</time>
-
+          <React.Fragment key={content}>
+            {
+              tag === 'span' ?
+                <span className={extraClasses.join(" ")}>{content}</span>
+                :
+                <time className={extraClasses.join(" ")}>{content}</time>
+            }
+          </React.Fragment>
         ))
       }
     </td>

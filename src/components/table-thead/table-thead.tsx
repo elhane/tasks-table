@@ -11,7 +11,9 @@ function TableThead({cols}: TableTheadProps): JSX.Element {
     <thead>
       <tr>
         {
-          cols.map(({content, extraClasses = [] }) => <th className={extraClasses.join(' ')}>{content}</th>)
+          cols.map(({content, extraClasses = [] }) =>
+            <th key={content} className={extraClasses.join(' ')}>{content}</th>
+          )
         }
       </tr>
     </thead>

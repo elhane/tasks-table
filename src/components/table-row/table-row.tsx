@@ -12,7 +12,7 @@ function TableRow({cols}: TableRowProps): JSX.Element {
     <tr>
       {
         cols.map(({rows}) => (
-          <TableCell rows={rows} />
+          <TableCell key={rows[0].content} rows={rows} />
         ))
       }
     </tr>
