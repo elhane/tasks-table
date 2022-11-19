@@ -9,26 +9,29 @@ import Pagination from '../pagination/pagination';
 import {PaginationData} from '../../types/pagination';
 
 function App() {
-  const [tasksAmount, setTasksAmount] = useState<number>(TASKS_PER_STEP_AMOUNT);
+  const [tasksPerPageCount, setTasksPerPageCount] = useState<number>(TASKS_PER_STEP_AMOUNT);
   const [currentPage, setCurrentPage] = useState(1);
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [totalPageCount, setTotalPageCount] = useState(tasks.length / tasksAmount);
+  const [totalPageCount, setTotalPageCount] = useState(tasks.length / tasksPerPageCount);
 
   useEffect(() => {
     getData(BACKEND_URL, setTasks);
   }, []);
 
   useEffect(() => {
-    setTotalPageCount(Math.ceil(tasks.length / tasksAmount));
-  }, [tasksAmount, tasks])
+    setTotalPageCount(Math.round(tasks.length / tasksPerPageCount));
+  }, [tasksPerPageCount, tasks, currentPage])
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [tasksPerPageCount])
 
   const currentTasksData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * tasksAmount;
-    const lastPageIndex = firstPageIndex + tasksAmount;
-    console.debug('page part', tasks.slice(firstPageIndex, lastPageIndex));
+    const firstPageIndex = (currentPage - 1) * tasksPerPageCount;
+    const lastPageIndex = firstPageIndex + tasksPerPageCount;
 
     return tasks.slice(firstPageIndex, lastPageIndex);
-  },[tasksAmount, tasks, currentPage, totalPageCount]);
+  },[tasksPerPageCount, tasks, currentPage]);
 
   const onPaginationChange = (evt: SyntheticEvent, data: PaginationData) => {
     setCurrentPage(Number(data.activePage));
@@ -42,13 +45,13 @@ function App() {
 
       <div className="page__pagination">
         <Pagination
-          tasksAmount={tasksAmount}
+          tasksPerPageCount={tasksPerPageCount}
           onPageChange={onPaginationChange}
           totalPages={totalPageCount}
           currentPage={currentPage}
         />
 
-        <Select setTasksAmount={setTasksAmount}/>
+        <Select setTasksPerPageCount={setTasksPerPageCount}/>
       </div>
 
     </div>

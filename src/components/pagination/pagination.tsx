@@ -4,19 +4,19 @@ import React from 'react';
 import {PaginationProps} from 'semantic-ui-react/dist/commonjs/addons/Pagination/Pagination';
 
 type PaginationBlockProps = {
-  tasksAmount: number,
+  tasksPerPageCount: number,
   onPageChange: (event: React.MouseEvent<HTMLAnchorElement>, data: PaginationProps) => void,
   totalPages: number,
   currentPage: number
 }
 
-function PaginationBlock({tasksAmount, onPageChange, totalPages, currentPage}: PaginationBlockProps):JSX.Element {
+function PaginationBlock({tasksPerPageCount, onPageChange, totalPages, currentPage}: PaginationBlockProps):JSX.Element {
   return (
     <div className="page-pagination">
-      <span className="page-pagination__label color-grey">записи 1-{tasksAmount}</span>
+      <span className="page-pagination__label color-grey">{(tasksPerPageCount * currentPage + 1) - tasksPerPageCount}-{tasksPerPageCount * currentPage}</span>
 
       <Pagination
-        defaultActivePage={1}
+        activePage={currentPage}
         totalPages={totalPages}
         ellipsisItem={null}
         siblingRange={0}

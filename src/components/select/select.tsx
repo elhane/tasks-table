@@ -2,12 +2,12 @@ import './select.scss';
 import React, {ChangeEvent} from 'react';
 
 type SelectProps = {
-  setTasksAmount: (count: number) => void;
+  setTasksPerPageCount: (count: number) => void;
 }
 
-function Select({setTasksAmount}: SelectProps):JSX.Element {
+function Select({setTasksPerPageCount}: SelectProps):JSX.Element {
   const onSelectChange = (evt: ChangeEvent<HTMLSelectElement>) => {
-    setTasksAmount(Number(evt.currentTarget.value));
+    setTasksPerPageCount(Number(evt.currentTarget.value));
   }
 
   return (

@@ -1,20 +1,16 @@
 import './table.scss';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Task} from '../../types/task';
-import {getFormattedDate, getData} from '../../utils';
-import {BACKEND_URL, Status, columns, TASKS_PER_STEP_AMOUNT} from '../../const';
+import {getFormattedDate} from '../../utils';
+import {Status, columns} from '../../const';
 import TableRow from '../table-row/table-row';
 import TableThead from '../table-thead/table-thead';
-import Select from '../select/select';
 
 type TableProps = {
   tasks: Task[]
 }
 
 function Table({tasks}: TableProps) {
-  // const [tasks, setTasks] = useState<Task[]>([]);
-  // const [tasksAmount, setTasksAmount] = useState(TASKS_PER_STEP_AMOUNT);
-  // const [tasksToShow, setTasksToShow] = useState<Task[]>(tasks.slice(0, TASKS_PER_STEP_AMOUNT));
 
   return (
     <>
@@ -83,9 +79,7 @@ function Table({tasks}: TableProps) {
         }
         </tbody>
       </table>
-
     </>
-
   );
 }
 
