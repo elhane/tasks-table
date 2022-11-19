@@ -19,14 +19,6 @@ export type Task = {
   created_date: number
 };
 
-interface ObjectKeys {
-  [key: string]: string | number ;
-}
-
-export interface StatusType extends ObjectKeys {
-  new: string,
-  assigned_to: string,
-  started: string,
-  completed: string,
-  declined: string,
+export interface StatusType  {
+  [key: string]: { [key: string]: string },
 }

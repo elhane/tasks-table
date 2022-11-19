@@ -1,0 +1,27 @@
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-overflow {
+  max-width: 80%;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.text-small {
+
+}
+
+.color-grey {
+  color: var(--grey);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}

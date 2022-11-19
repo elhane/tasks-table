@@ -7,7 +7,7 @@
     color: var(--grey);
     font-weight: 600;
     font-size: 0.8rem;
-    text-align: left;
+    //text-align: left;
   }
 
   td {
@@ -29,8 +29,8 @@
   }
 
   tbody tr {
-    border-top: 1px solid var(--grey);
-    border-bottom: 1px solid var(--grey);
+    border-top: 1px solid var(--grey-light);
+    border-bottom: 1px solid var(--grey-light);
   }
 
 }
