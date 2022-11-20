@@ -1,14 +1,14 @@
 import './select.scss';
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, memo} from 'react';
 
 type SelectProps = {
   setTasksPerPageCount: (count: number) => void;
-}
+};
 
 function Select({setTasksPerPageCount}: SelectProps):JSX.Element {
   const onSelectChange = (evt: ChangeEvent<HTMLSelectElement>) => {
     setTasksPerPageCount(Number(evt.currentTarget.value));
-  }
+  };
 
   return (
     <div className="select">
@@ -26,4 +26,4 @@ function Select({setTasksPerPageCount}: SelectProps):JSX.Element {
     </div>
   )
 }
-export default Select;
+export default memo(Select);

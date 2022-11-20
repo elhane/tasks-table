@@ -8,7 +8,8 @@ export type TableRow = {
 export type TableCol = {
   rows: TableRow[],
   extraClasses: string[],
-  dataCssTitle: string | number
+  dataCssTitle: string | number,
+  link?: string
 }
 
 export type TableCols = TableCol[];

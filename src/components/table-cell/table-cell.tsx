@@ -4,19 +4,24 @@ import {TableRow} from '../../types/table';
 type TableCellProps = {
   rows: TableRow[],
   dataCssTitle: string | number,
-  extraClasses: string[]
-}
+  extraClasses: string[],
+  link?: string
+};
 
-function TableCell({rows, dataCssTitle, extraClasses = []}: TableCellProps): JSX.Element {
+function TableCell({rows, dataCssTitle, extraClasses = [], link = ''}: TableCellProps): JSX.Element {
   return (
-    <td className={extraClasses.join(" ")}>
-      <div key={dataCssTitle} data-css-title={dataCssTitle}>
+    <td className={extraClasses.join(' ')}>
+      {link ? <a href={link} rel="noreferrer noopener"></a>: ''}
+      <div
+        key={dataCssTitle}
+        data-css-title={dataCssTitle}
+      >
         {
           rows.map(({tag, content, extraClasses = []}) => (
             tag === 'span' ?
-              <span className={extraClasses.join(" ")}>{content}</span>
+              <span className={extraClasses.join(' ')}>{content}</span>
               :
-              <time className={extraClasses.join(" ")}>{content}</time>
+              <time className={extraClasses.join(' ')}>{content}</time>
           ))
         }
       </div>

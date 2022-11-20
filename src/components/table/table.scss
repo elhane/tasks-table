@@ -13,6 +13,8 @@
   }
 
   tr {
+    position: relative;
+
     @media(max-width: media.$mobile-width) {
       display: flex;
       flex-wrap: wrap;
@@ -21,12 +23,19 @@
         margin-bottom: 1.5rem;
       }
     }
+
   }
 
   tbody tr {
+    transition: color 0.4s;
+
     @media(min-width: media.$mobile-width) {
       border-top: 1px solid var(--grey-light);
       border-bottom: 1px solid var(--grey-light);
+    }
+
+    &:hover {
+      background-color: var(--blue-light);
     }
   }
 
@@ -80,6 +89,15 @@
         white-space: nowrap;
       }
     }
+  }
+
+  td a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
   }
 }
 

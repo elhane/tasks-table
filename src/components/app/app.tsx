@@ -9,22 +9,10 @@ import Pagination from '../pagination/pagination';
 import {PaginationData} from '../../types/pagination';
 
 function App() {
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [tasksPerPageCount, setTasksPerPageCount] = useState<number>(TASKS_PER_STEP_AMOUNT);
   const [currentPage, setCurrentPage] = useState(1);
-  const [tasks, setTasks] = useState<Task[]>([]);
   const [totalPageCount, setTotalPageCount] = useState(tasks.length / tasksPerPageCount);
-
-  useEffect(() => {
-    getData(BACKEND_URL, setTasks);
-  }, []);
-
-  useEffect(() => {
-    setTotalPageCount(Math.round(tasks.length / tasksPerPageCount));
-  }, [tasksPerPageCount, tasks, currentPage])
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [tasksPerPageCount])
 
   const currentTasksData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * tasksPerPageCount;
@@ -36,6 +24,18 @@ function App() {
   const onPaginationChange = (evt: SyntheticEvent, data: PaginationData) => {
     setCurrentPage(Number(data.activePage));
   };
+
+  useEffect(() => {
+    getData(BACKEND_URL, setTasks);
+  }, []);
+
+  useEffect(() => {
+    setTotalPageCount(Math.round(tasks.length / tasksPerPageCount));
+  }, [tasksPerPageCount, tasks, currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [tasksPerPageCount]);
 
   return (
     <div className="page container">
@@ -53,7 +53,6 @@ function App() {
 
         <Select setTasksPerPageCount={setTasksPerPageCount}/>
       </div>
-
     </div>
   );
 }
