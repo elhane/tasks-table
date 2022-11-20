@@ -12,10 +12,10 @@ const Status:StatusType = {
 const BACKEND_URL = 'data/test_data.json';
 
 const columns: TheadCol[] = [
-  { content: 'Номер / Дата', extraClasses: ['text-left'] },
-  { content: 'Тип задания / Автор', extraClasses: ['text-left'] },
-  { content: 'Аккаунт / Терминал', extraClasses: ['text-left']},
-  { content: 'Статус', extraClasses: ['text-center'] },
+  { content: 'Номер / Дата', extraClasses: ['text-left', 'w-20'] },
+  { content: 'Тип задания / Автор', extraClasses: ['text-left', 'w-30'] },
+  { content: 'Аккаунт / Терминал', extraClasses: ['text-left', 'w-35'] },
+  { content: 'Статус', extraClasses: ['text-center', 'w-15'] },
 ];
 
 const TASKS_PER_STEP_AMOUNT = 5;
@@ -26,3 +26,4 @@ export {
   columns,
   TASKS_PER_STEP_AMOUNT
 };
+

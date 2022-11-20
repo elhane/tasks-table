@@ -13,7 +13,9 @@ type PaginationBlockProps = {
 function PaginationBlock({tasksPerPageCount, onPageChange, totalPages, currentPage}: PaginationBlockProps):JSX.Element {
   return (
     <div className="page-pagination">
-      <span className="page-pagination__label color-grey">{(tasksPerPageCount * currentPage + 1) - tasksPerPageCount}-{tasksPerPageCount * currentPage}</span>
+      <span className="page-pagination__label color-grey">
+        записи {(tasksPerPageCount * currentPage + 1)- tasksPerPageCount}&#8209;{tasksPerPageCount * currentPage}
+      </span>
 
       <Pagination
         activePage={currentPage}

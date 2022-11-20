@@ -11,8 +11,13 @@ function TableRow({cols}: TableRowProps): JSX.Element {
   return (
     <tr>
       {
-        cols.map(({rows}) => (
-          <TableCell key={rows[0].content} rows={rows} />
+        cols.map(({rows, dataCssTitle, extraClasses}) => (
+          <TableCell
+            key={rows[0].content}
+            rows={rows}
+            dataCssTitle={dataCssTitle}
+            extraClasses={extraClasses}
+          />
         ))
       }
     </tr>

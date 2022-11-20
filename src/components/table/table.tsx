@@ -22,10 +22,12 @@ function Table({tasks}: TableProps) {
           tasks.map(({id, order_type, created_date, created_user, account, terminal, status}) => {
             const taskCols = [
               {
+                dataCssTitle: columns[0].content,
+                extraClasses: ['mobile-w-40'],
                 rows: [
                   {
                     content: `№${id}`,
-                    tag: 'span'
+                    tag: 'span',
                   },
                   {
                     content: `${getFormattedDate(created_date)}`,
@@ -35,10 +37,13 @@ function Table({tasks}: TableProps) {
                 ]
               },
               {
+                dataCssTitle: columns[1].content,
+                extraClasses: ['mobile-w-60'],
                 rows: [
                   {
                     content: order_type.name,
-                    tag: 'span'
+                    tag: 'span',
+                    extraClasses: ['text-overflow']
                   },
                   {
                     content: `${created_user.surname} ${created_user.name[0]}.${created_user.patronymic[0]}.`,
@@ -48,6 +53,8 @@ function Table({tasks}: TableProps) {
                 ]
               },
               {
+                dataCssTitle: columns[2].content,
+                extraClasses: ['mobile-w-55'],
                 rows: [
                   {
                     content: account.name,
@@ -62,6 +69,8 @@ function Table({tasks}: TableProps) {
                 ]
               },
               {
+                dataCssTitle: columns[3].content,
+                extraClasses: ['mobile-w-45'],
                 rows: [
                   {
                     content: Status[status].name,

@@ -13,13 +13,16 @@ function Select({setTasksPerPageCount}: SelectProps):JSX.Element {
   return (
     <div className="select">
       <label className="select__label color-grey" htmlFor="tasks">по</label>
-      <select className="select__select" name="tasks" id="tasks" onChange={onSelectChange}>
-        <option className="select__option" value="5">5</option>
-        <option className="select__option" value="10">10</option>
-        <option className="select__option" value="15">15</option>
-        <option className="select__option" value="25">25</option>
-        <option className="select__option" value="50">50</option>
-      </select>
+      <div className="select__wrap">
+        <select className="select__select" name="tasks" id="tasks" onChange={onSelectChange}>
+          <option className="select__option" value="5">5</option>
+          <option className="select__option" value="10">10</option>
+          <option className="select__option" value="15">15</option>
+          <option className="select__option" value="25">25</option>
+          <option className="select__option" value="50">50</option>
+        </select>
+      </div>
+      <span className="select__label color-grey">записей</span>
     </div>
   )
 }
