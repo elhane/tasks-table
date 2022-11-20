@@ -1,8 +1,14 @@
+@use '../../styles/media.scss';
 @import '../../styles/main';
 
 .container {
-  max-width: var(--desktop-width);
+  max-width: media.$desktop-width;
   margin: 0 auto;
+  padding: 0 2rem;
+
+  @media(max-width: media.$mobile-width) {
+    padding: 0 1rem;
+  }
 }
 
 .page {
@@ -12,7 +18,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     padding-top: 2rem;
     font-size: 0.8rem;
+
+    @media(max-width: media.$mobile-width) {
+      justify-content: flex-end;
+    }
   }
 }

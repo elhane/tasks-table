@@ -1,8 +1,13 @@
+@use '../../styles/media.scss';
+
 .page-pagination {
-  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
 
   &__label {
     margin-right: 0.5rem;
+    text-align: right;
   }
 }
 
@@ -10,6 +15,7 @@
   display: inline-flex;
   border: 1px solid var(--grey-light);
   border-radius: 0.2rem;
+  height: 2.5rem;
 
   .item {
     display: flex;
@@ -33,6 +39,7 @@
       line-height: 1;
       font-weight: 300;
       padding-bottom: 0.5rem;
+      cursor: pointer;
     }
 
     &.disabled {

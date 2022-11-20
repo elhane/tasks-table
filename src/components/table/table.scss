@@ -1,18 +1,62 @@
+@use '../../styles/media.scss';
+
 .table {
   border-collapse: collapse;
   width: 100%;
 
+  --cellWidth: auto;
+
+  thead {
+    @media(max-width: media.$mobile-width) {
+      display: none;
+    }
+  }
+
+  tr {
+    @media(max-width: media.$mobile-width) {
+      display: flex;
+      flex-wrap: wrap;
+
+      &:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  tbody tr {
+    @media(min-width: media.$mobile-width) {
+      border-top: 1px solid var(--grey-light);
+      border-bottom: 1px solid var(--grey-light);
+    }
+  }
+
   th {
-    padding: 10px;
+    width: var(--cellWidth);
     color: var(--grey);
     font-weight: 600;
+  }
+
+  th, td {
+    padding: 0.9rem;
+    width: var(--cellWidth);
     font-size: 0.8rem;
+
+    @for $i from 1 through 20 {
+      $count: $i * 5;
+
+      &.w-#{$count} {
+        --cellWidth: #{$count}.0%;
+      }
+
+      @media(max-width: media.$mobile-width) {
+        &.mobile-w-#{$count} {
+          --cellWidth: #{$count}.0%;
+        }
+      }
+    }
   }
 
   td {
-    padding: 15px 10px;
-    font-size: 0.8rem;
-
     span {
       display: block;
 
@@ -20,16 +64,22 @@
         margin-bottom: 5px;
       }
     }
-  }
 
-  tr {
-    padding: 7px 10px;
-    height: 40px;
-  }
+    @media(max-width: media.$mobile-width) {
+      padding: 0.6rem;
+      border: 0.5px solid var(--grey-light);
 
-  tbody tr {
-    border-top: 1px solid var(--grey-light);
-    border-bottom: 1px solid var(--grey-light);
+      [data-css-title]::before {
+        display: block;
+        width: 100%;
+        content: attr(data-css-title);
+        color: var(--grey);
+        font-size: 0.7rem;
+        line-height: 1.3rem;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+    }
   }
-
 }
+

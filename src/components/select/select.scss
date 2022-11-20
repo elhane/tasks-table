@@ -1,20 +1,52 @@
 .select {
   display: inline-flex;
   align-items: center;
+  margin-bottom: 0.5rem;
 
   &__label {
-    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
   }
 
   &__select {
-    padding: 0.6rem 0.6rem 0.6rem 0.2rem;
-    min-width: 1.4rem;
+    padding: 0.6rem 1rem 0.6rem 0.2rem;
+    min-width: 3.2rem;
+    height: 2.5rem;
     border: 1px solid var(--grey-light);
     text-align: center;
     border-radius: 0.2rem;
     color: var(--blue);
     font-weight: 500;
     font-size: 0.9rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  }
 
+  &__wrap {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "›";
+      right: 0;
+      top: 50%;
+      z-index: 1;
+      width: 50%;
+      height: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      color: var(--blue);
+      font-size: 1.6rem;
+      text-align: left;
+      font-weight: 300;
+      transform: translateY(-50%) rotate(90deg);
+      pointer-events: none;
+    }
   }
 }
