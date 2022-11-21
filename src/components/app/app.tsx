@@ -8,7 +8,7 @@ import Select from '../select/select';
 import Pagination from '../pagination/pagination';
 import {PaginationData} from '../../types/pagination';
 
-function App() {
+function App():JSX.Element {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [tasksPerPageCount, setTasksPerPageCount] = useState<number>(TASKS_PER_STEP_AMOUNT);
   const [currentPage, setCurrentPage] = useState(1);
@@ -36,6 +36,10 @@ function App() {
   useEffect(() => {
     setCurrentPage(1);
   }, [tasksPerPageCount]);
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [currentPage]);
 
   return (
     <div className="page container">

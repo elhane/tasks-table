@@ -19,9 +19,9 @@ function TableCell({rows, dataCssTitle, extraClasses = [], link = ''}: TableCell
         {
           rows.map(({tag, content, extraClasses = []}) => (
             tag === 'span' ?
-              <span className={extraClasses.join(' ')}>{content}</span>
+              <span className={extraClasses.join(' ')} key={content}>{content}</span>
               :
-              <time className={extraClasses.join(' ')}>{content}</time>
+              <time className={extraClasses.join(' ')} key={content}>{content}</time>
           ))
         }
       </div>

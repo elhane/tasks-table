@@ -1,5 +1,5 @@
 import './table.scss';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Task} from '../../types/task';
 import {getFormattedDate} from '../../utils';
 import {Status, columns} from '../../const';
@@ -10,7 +10,7 @@ type TableProps = {
   tasks: Task[]
 };
 
-function Table({tasks}: TableProps) {
+function Table({tasks}: TableProps):JSX.Element {
   return (
     <table className="table">
       <TableThead cols={columns} />
