@@ -26,4 +26,10 @@
       justify-content: flex-end;
     }
   }
+
+  &__empty-message {
+    margin-top: 3rem;
+    color: var(--grey);
+    font-size: 1.1rem;
+  }
 }

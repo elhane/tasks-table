@@ -45,18 +45,21 @@ function App():JSX.Element {
     <div className='page container'>
       <h1>Задания</h1>
 
-      <Table tasks={currentTasksData}/>
+      { !tasks.length ? <p className="page__empty-message">Загрузка заданий...</p> :
+        <>
+          <Table tasks={currentTasksData}/>
+          <div className='page__pagination'>
+            <Pagination
+              tasksPerPageCount={tasksPerPageCount}
+              onPageChange={onPaginationChange}
+              totalPages={totalPageCount}
+              currentPage={currentPage}
+            />
 
-      <div className='page__pagination'>
-        <Pagination
-          tasksPerPageCount={tasksPerPageCount}
-          onPageChange={onPaginationChange}
-          totalPages={totalPageCount}
-          currentPage={currentPage}
-        />
-
-        <Select setTasksPerPageCount={setTasksPerPageCount}/>
-      </div>
+            <Select setTasksPerPageCount={setTasksPerPageCount}/>
+          </div>
+        </>
+      }
     </div>
   );
 }
