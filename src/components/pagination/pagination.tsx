@@ -11,11 +11,11 @@ type PaginationBlockProps = {
 };
 
 function Pagination({tasksPerPageCount, onPageChange, totalPages, currentPage}: PaginationBlockProps):JSX.Element {
-  const labelText = `записи ${(tasksPerPageCount * currentPage + 1) - tasksPerPageCount}-${tasksPerPageCount * currentPage}`
+  const labelText = `${(tasksPerPageCount * currentPage + 1) - tasksPerPageCount}-${tasksPerPageCount * currentPage}`
 
   return (
     <div className='page-pagination'>
-      <span className='page-pagination__label color-grey'>{labelText}</span>
+      <span className='page-pagination__label color-grey'>записи <span>{labelText}</span></span>
 
       <SemanticPagination
         activePage={currentPage}

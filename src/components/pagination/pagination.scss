@@ -8,6 +8,10 @@
   &__label {
     margin-right: 0.5rem;
     text-align: right;
+
+    span {
+      white-space: nowrap;
+    }
   }
 }
 
