@@ -35,10 +35,10 @@
       border-right: 1px solid var(--grey-light);
     }
 
-    &[type="firstItem"],
-    &[type="lastItem"],
-    &[type="prevItem"],
-    &[type="nextItem"] {
+    &[type='firstItem'],
+    &[type='lastItem'],
+    &[type='prevItem'],
+    &[type='nextItem'] {
       font-size: 1.6rem;
       line-height: 1;
       font-weight: 300;
