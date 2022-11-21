@@ -1,27 +1,28 @@
 import React from 'react';
 import {TableRow} from '../../types/table';
+import classNames from 'classnames';
 
 type TableCellProps = {
   rows: TableRow[],
   dataCssTitle: string | number,
-  extraClasses: string[],
+  extraClasses: string,
   link?: string
 };
 
-function TableCell({rows, dataCssTitle, extraClasses = [], link = ''}: TableCellProps): JSX.Element {
+function TableCell({rows, dataCssTitle, extraClasses, link = ''}: TableCellProps): JSX.Element {
   return (
-    <td className={extraClasses.join(' ')}>
-      {link ? <a href={link} rel="noreferrer noopener"></a>: ''}
+    <td className={classNames(extraClasses)}>
+      {link ? <a href={link} rel='noreferrer noopener'></a>: ''}
       <div
         key={dataCssTitle}
         data-css-title={dataCssTitle}
       >
         {
-          rows.map(({tag, content, extraClasses = []}) => (
+          rows.map(({tag, content, extraClasses }) => (
             tag === 'span' ?
-              <span className={extraClasses.join(' ')} key={content}>{content}</span>
+              <span className={classNames(extraClasses)} key={content}>{content}</span>
               :
-              <time className={extraClasses.join(' ')} key={content}>{content}</time>
+              <time className={classNames(extraClasses)} key={content}>{content}</time>
           ))
         }
       </div>

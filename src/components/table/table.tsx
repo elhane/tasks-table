@@ -1,5 +1,5 @@
 import './table.scss';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Task} from '../../types/task';
 import {getFormattedDate} from '../../utils';
 import {Status, columns} from '../../const';
@@ -12,7 +12,7 @@ type TableProps = {
 
 function Table({tasks}: TableProps):JSX.Element {
   return (
-    <table className="table">
+    <table className='table'>
       <TableThead cols={columns} />
 
       <tbody>
@@ -21,8 +21,8 @@ function Table({tasks}: TableProps):JSX.Element {
           const colsData = [
             {
               dataCssTitle: columns[0].content,
-              extraClasses: ['mobile-w-40'],
-              link: "#",
+              extraClasses: 'mobile-w-40',
+              link: '#',
               rows: [
                 {
                   content: `№${id}`,
@@ -31,50 +31,50 @@ function Table({tasks}: TableProps):JSX.Element {
                 {
                   content: `${getFormattedDate(created_date)}`,
                   tag: 'time',
-                  extraClasses: ['color-grey']
+                  extraClasses: 'color-grey'
                 }
               ]
             },
             {
               dataCssTitle: columns[1].content,
-              extraClasses: ['mobile-w-60'],
+              extraClasses: 'mobile-w-60',
               rows: [
                 {
                   content: order_type.name,
                   tag: 'span',
-                  extraClasses: ['text-overflow']
+                  extraClasses: 'text-overflow'
                 },
                 {
                   content: `${created_user.surname} ${created_user.name[0]}.${created_user.patronymic[0]}.`,
                   tag: 'span',
-                  extraClasses: ['color-grey']
+                  extraClasses: 'color-grey'
                 }
               ]
             },
             {
               dataCssTitle: columns[2].content,
-              extraClasses: ['mobile-w-55'],
+              extraClasses: 'mobile-w-55',
               rows: [
                 {
                   content: account.name,
                   tag: 'span',
-                  extraClasses: ['text-overflow']
+                  extraClasses: 'text-overflow'
                 },
                 {
                   content: terminal.name,
                   tag: 'span',
-                  extraClasses: ['color-grey', 'text-overflow']
+                  extraClasses: 'color-grey text-overflow'
                 },
               ]
             },
             {
               dataCssTitle: columns[3].content,
-              extraClasses: ['mobile-w-45'],
+              extraClasses: 'mobile-w-45',
               rows: [
                 {
                   content: Status[status].name,
                   tag: 'span',
-                  extraClasses: ['status', `${Status[status].class}`]
+                  extraClasses: `status ${Status[status].class}`
                 }
               ]
             },

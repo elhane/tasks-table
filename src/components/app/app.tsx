@@ -42,12 +42,12 @@ function App():JSX.Element {
   }, [currentPage]);
 
   return (
-    <div className="page container">
+    <div className='page container'>
       <h1>Задания</h1>
 
       <Table tasks={currentTasksData}/>
 
-      <div className="page__pagination">
+      <div className='page__pagination'>
         <Pagination
           tasksPerPageCount={tasksPerPageCount}
           onPageChange={onPaginationChange}

@@ -10,10 +10,10 @@ const Status:StatusType = {
 };
 
 const columns: TheadCol[] = [
-  { content: 'Номер / Дата', extraClasses: ['text-left', 'w-20'] },
-  { content: 'Тип задания / Автор', extraClasses: ['text-left', 'w-30'] },
-  { content: 'Аккаунт / Терминал', extraClasses: ['text-left', 'w-35'] },
-  { content: 'Статус', extraClasses: ['text-center', 'w-15'] }
+  { content: 'Номер / Дата', extraClasses: 'text-left w-20' },
+  { content: 'Тип задания / Автор', extraClasses: 'text-left w-30' },
+  { content: 'Аккаунт / Терминал', extraClasses: 'text-left w-35' },
+  { content: 'Статус', extraClasses: 'text-center w-15' }
 ];
 
 const BACKEND_URL = 'data/test_data.json';
